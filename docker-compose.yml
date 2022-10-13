@@ -10,6 +10,8 @@ services:
   database:
     container_name: "PostgreSQL"
     image: "postgres:12.10-alpine"
+    volumes:
+      - ./database:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
