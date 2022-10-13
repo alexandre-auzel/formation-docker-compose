@@ -7,7 +7,7 @@ dotenv.config()
 const app = express();
 const port = 3000;
 const client = new Pool({
-    host: 'localhost',
+    host: 'database',
     user: process.env.DATABASE_USER,
     database: 'postgres',
     password: process.env.DATABASE_PWD,
@@ -27,7 +27,7 @@ const query2 = `
     INSERT INTO "Livres" (title, author) VALUES 
     ('Des fleurs pour Algernon', 'Keyes'),
     ('Vango', 'De Fombelle'),
-    ('Accelerate', 'Forsgren')
+    ('Acceleraate', 'Forsgren')
     ;`;
 const populate = async () => {
     await client.query(query1);

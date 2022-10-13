@@ -1,9 +1,15 @@
 services:
+  web:
+    container_name: "WebApp"
+    depends_on:
+      - database
+    build: .
+    ports:
+      - "9000:3000"
+    restart: always
   database:
     container_name: "PostgreSQL"
     image: "postgres:12.10-alpine"
-    ports:
-      - "9001:5432"
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
