@@ -13,5 +13,6 @@ services:
     volumes:
       - ./database:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DATABASE_PWD}
+      - POSTGRES_USER=${DATABASE_USER}
+    command: -p ${DATABASE_PORT}
